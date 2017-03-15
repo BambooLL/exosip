@@ -908,7 +908,8 @@ _eXosip_process_newrequest (struct eXosip_t *excontext, osip_event_t * evt, int 
 
     /* add the REQUEST & the 100 Trying */
     osip_transaction_add_event (transaction, evt_answer);
-    _eXosip_wakeup (excontext);
+    /*ist execute here will free evt,thus following code using evt->sip may have null exception*/
+    //_eXosip_wakeup (excontext);
   }
 #endif
 
