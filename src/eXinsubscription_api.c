@@ -535,6 +535,7 @@ _eXosip_insubscription_auto_send_notify (struct eXosip_t *excontext, int did, in
                     "\r\n" "		</remote>" "\r\n" "	</dialog>" "\r\n", jd->d_dialog->call_id, jd->d_dialog->call_id, jd->d_dialog->local_tag, jd->d_dialog->remote_tag, direction, dlg_state, remote_uri);
           if (strlen (xml) + strlen (tmp_dialog) < sizeof (xml))
             strcat (xml, tmp_dialog);
+          osip_free(remote_uri);
         }
       }
     }
